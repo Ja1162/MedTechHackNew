@@ -1,0 +1,29 @@
+#ealth Check
+GET http://127.0.0.1:5000/api/health
+
+### Register a new user
+POST http://## H127.0.0.1:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Harsh",
+  "email": "harsh@example.com",
+  "password": "test123",
+  "age": 25
+}
+
+### Login
+POST http://127.0.0.1:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "harsh@example.com",
+  "password": "test123"
+}
+
+### Get domains (no token needed)
+GET http://127.0.0.1:5000/api/domains
+
+### Get summary (paste your token below after login)
+GET http://127.0.0.1:5000/api/summary
+Authorization: Bearer B8FyNNBe6DaznbYGRz-x2ZY-u7Sgr6Fas5kDWT9hesQ
