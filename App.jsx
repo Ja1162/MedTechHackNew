@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer } from "recharts";
-import Logo from './Logo.jpeg';
+import Logo from './Logo.jpg';
 
 //img src
 // ─── VIBRANT COLOUR SYSTEM ────────────────────────────────────────────────────
@@ -302,16 +302,18 @@ function TopNav({ active, onNav, role, user, onLogout }) {
       <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", alignItems: "center", height: 76 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginRight: 48, cursor: "pointer" }} onClick={() => onNav("home")}>
           {/* {/* <div style={{ width: 40, height: 40, background: G.coral, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", boxShadow: "0 4px 12px rgba(255,71,87,0.3)" }}> */}
-            <div style={{ width: 40, height: 40, borderRadius: 12, overflow: "hidden" }}>
+            {/* <div style={{ width: 40, height: 40, borderRadius: 12, overflow: "hidden" }}>
             {/* <img src={"./Logo.jpeg"} alt="Intinn Logo" height={20} width={20} /> */}
 
 {/* 
             <img src={Logo} alt="Initinn" width={40} height={40} /> */}
-            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />
+            {/* <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />
   
 
             
-            </div>
+            </div>  */}
+
+            <img src={Logo} alt="Initinn" style={{ height: 50, width: "auto", maxWidth: 120 }} />
           <span style={{ fontSize: "1.4rem", fontWeight: 900, background: G.coral, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Initinn</span>
         </div>
         <div style={{ display: "flex", gap: 4, flex: 1 }}>
@@ -417,15 +419,15 @@ function MiniNav({ onLogin, onRegister }) {
     <div style={{ padding: "0 48px", borderBottom: `2px solid ${C.border}`, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", position: "sticky", top: 0, zIndex: 10 }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-     <div style={{ width: 38, height: 38, borderRadius: 10, overflow: "hidden" }}>
-
+     {/* <div style={{ width: 38, height: 38, borderRadius: 10, overflow: "hidden" }}> */}
+<img src={Logo} alt="Initinn" style={{ height: 50, width: "auto", maxWidth: 120 }} />
           
             {/* <img src={Logo} alt="Intinn image"/> */}
              {/* <img src={Logo} alt="Initinn" width={40} height={40} /> */}
             {/* height={20} width={20} */}
-            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />      
+            {/* <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />      
             
-            </div>
+            </div> */}
           <span style={{ fontSize: "1.3rem", fontWeight: 900, background: G.coral, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Initinn</span>
         </div>
         {onLogin && onRegister && (
@@ -1338,7 +1340,9 @@ function DietScreen({ role, meals, setMeals }) {
   };
   const brainCount = meals.filter(m => BRAIN_FOODS.some(f => m.text.toLowerCase().includes(f.name.toLowerCase().split(" ")[0]))).length;
   const filters = ["all", "breakfast", "lunch", "dinner","avoid"];
-  const filtered = filter === "all" ? BRAIN_FOODS : BRAIN_FOODS.filter(f => f.cat === filter);
+  const filtered = filter === "all"
+  ? BRAIN_FOODS.filter(f => f.cat !== "avoid")
+  : BRAIN_FOODS.filter(f => f.cat === filter);
   const foodGradients = [G.coral, G.teal, G.blue, G.yellow, G.pink, G.green, G.coral, G.teal];
   return (
     <div style={S.page}>
