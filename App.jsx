@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer } from "recharts";
-import Logo from './Logo.png';
+import Logo from './Logo.jpeg';
 
 //img src
 // ─── VIBRANT COLOUR SYSTEM ────────────────────────────────────────────────────
@@ -307,7 +307,7 @@ function TopNav({ active, onNav, role, user, onLogout }) {
 
 {/* 
             <img src={Logo} alt="Initinn" width={40} height={40} /> */}
-            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "cover" }} />
+            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />
   
 
             
@@ -423,7 +423,7 @@ function MiniNav({ onLogin, onRegister }) {
             {/* <img src={Logo} alt="Intinn image"/> */}
              {/* <img src={Logo} alt="Initinn" width={40} height={40} /> */}
             {/* height={20} width={20} */}
-            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "cover" }} />      
+            <img src={Logo} alt="Initinn" style={{ width: 40, height: 40, borderRadius: 12, objectFit: "contain" }} />      
             
             </div>
           <span style={{ fontSize: "1.3rem", fontWeight: 900, background: G.coral, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Initinn</span>
@@ -1409,7 +1409,7 @@ function DietScreen({ role, meals, setMeals }) {
             <div style={{ display: "flex", gap: 10, marginBottom: 20, flexWrap: "wrap" }}>
               {filters.map(f => (
                 <Chip key={f}
-                  label={f === "bvitamin" ? "B Vitamins" : f === "all" ? "All" : f.charAt(0).toUpperCase() + f.slice(1)}
+                  label={f === "bvitamin" ? "B Vitamin" : f === "all" ? "All" : f.charAt(0).toUpperCase() + f.slice(1)}
                   active={filter === f} onClick={() => setFilter(f)}
                   color={C.orange} gradient={G.yellow}
                 />
