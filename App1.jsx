@@ -1421,7 +1421,7 @@ function DietScreen({ role, meals, setMeals }) {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
               {filtered.map((food, i) => (
-                  <div key={food.name} style={{ background: C.white, border: `2px solid ${C.border}`, borderRadius: 16, padding: "18px 20px", overflow: "hidden", position: "relative" }}>
+                  <div key={`${food.cat}-${food.benefit}`} style={{ background: C.white, border: `2px solid ${C.border}`, borderRadius: 16, padding: "18px 20px", overflow: "hidden", position: "relative" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 5, background: foodGradients[i % foodGradients.length] }} />
                   <span style={{ fontSize: "2rem" }}>{food.icon}</span>
                   <div style={{ fontSize: "1.05rem", fontWeight: 700, marginTop: 10 }}>{food.name}</div>
