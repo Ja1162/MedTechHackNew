@@ -197,15 +197,16 @@ function randomize({c}){
   // const WORDS = [{ scrambled: [..."MEMORY"].sort(()=>Math.random()-.5).join(''), answer: "MEMORY" }, { scrambled: [..."BRAIN"].sort(()=>Math.random()-.5).join(''), answer: "BRAIN" }, { scrambled:[..."COFNITIVE"].sort(()=>Math.random()-.5).join(''), answer: "COGNITIVE" }];
 // const WORDS = [{ scrambled: randomize("MEMORY"), answer: "MEMORY" }, { scrambled: randomize("BRAIN"), answer: "BRAIN" }, { scrambled: randomize("COGNITIVE"), answer: "COGNITIVE" }];
 const BRAIN_FOODS = [
-
-  { name: "Breakfast 1", benefit: "Oats+Eggs+Youghurt", icon: "🥐", cat: "breakfast" },
-  { name: "Breakfast 2", benefit: "Smoothie+Toastie+Berry", icon: "🥪", cat: "breakfast" },
-  { name: "Lunch 1", benefit: "Rice+Lentils+Spinach", icon: "🥗", cat: "lunch" },
-  { name: "Lunch 2", benefit: "Tortilla+Hummus+Beans", icon: "🥙", cat: "lunch" },
-  { name: "Dinner 1", benefit: "Fish+Broccoli+Bread", icon: "🍛", cat: "dinner" },
-  { name: "Dinner 2", benefit: "Tofu+Veggies", icon: "🥘", cat: "dinner" },
-  { name: "Don't drink", benefit: "Alcohol", icon: "🍷", cat: "avoid" },
-  { name: "Avoid", benefit: "Sugary Snacks", icon: "🍫", cat: "avoid" },
+  { name: "Breakfast 1", benefit: "Oats+Eggs+Youghurt", icon: "", cat: "breakfast" },
+  { name: "Breakfast 2", benefit: "Smoothie+Toastie+Berry", icon: "", cat: "breakfast" },
+  { name: "Lunch 1", benefit: "Rice+Lentils+Spinach", icon: "", cat: "lunch" },
+  { name: "Lunch 2", benefit: "Tortilla+Hummus+Beans", icon: "", cat: "lunch" },
+  { name: "Dinner 1", benefit: "Fish+Broccoli+Bread", icon: "", cat: "dinner" },
+  { name: "Dinner 2", benefit: "Tofu+Veggies", icon: "", cat: "dinner" },
+  { name: "Don't drink", benefit: "Alcohol", icon: "", cat: "avoid" },
+  { name: "Avoid", benefit: "Sugary Snacks", icon: "", cat: "avoid" },
+  { name: "Avoid", benefit: "Processed meats", icon: "", cat: "avoid" },
+  { name: "Avoid", benefit: "Fried Food", icon: "", cat: "avoid" },
 ];
 const DECADES = ["1950s", "1960s", "1970s", "1980s", "1990s", "2000s"];
 const GENRES = ["Pop Classics", "Jazz", "Folk", "Classical", "Rock", "Country"];
@@ -300,7 +301,8 @@ function TopNav({ active, onNav, role, user, onLogout }) {
     <nav style={{ background: C.white, borderBottom: `2px solid ${C.border}`, padding: "0 48px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 20px rgba(0,0,0,0.06)" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", alignItems: "center", height: 76 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginRight: 48, cursor: "pointer" }} onClick={() => onNav("home")}>
-          <div style={{ width: 40, height: 40, background: G.coral, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", boxShadow: "0 4px 12px rgba(255,71,87,0.3)" }}>
+          {/* {/* <div style={{ width: 40, height: 40, background: G.coral, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", boxShadow: "0 4px 12px rgba(255,71,87,0.3)" }}> */}
+            <div style={{ width: 40, height: 40, borderRadius: 12, overflow: "hidden" }}>
             {/* <img src={"./Logo.jpeg"} alt="Intinn Logo" height={20} width={20} /> */}
 
 {/* 
@@ -415,8 +417,7 @@ function MiniNav({ onLogin, onRegister }) {
     <div style={{ padding: "0 48px", borderBottom: `2px solid ${C.border}`, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", position: "sticky", top: 0, zIndex: 10 }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 38, height: 38, background: G.coral, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem" }}>
-           
+     <div style={{ width: 38, height: 38, borderRadius: 10, overflow: "hidden" }}>
 
           
             {/* <img src={Logo} alt="Intinn image"/> */}
