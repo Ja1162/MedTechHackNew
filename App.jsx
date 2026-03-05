@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer } from "recharts";
-import Logo from './Logo1.png';
+import Logo from './Logo.png';
+import { Analytics } from "@vercel/analytics/react"
 const delay = ms => new Promise(
   resolve => setTimeout(resolve, ms)
 );
@@ -40,6 +41,8 @@ const G = {
   green: "linear-gradient(135deg, #2DC653 0%, #00C2A8 100%)",
   hero: "linear-gradient(160deg, #84edcd 0%, #18ab78 40%, #047450 100%)",
 };
+
+
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
@@ -886,7 +889,7 @@ function TasksScreen({ role, onDone, todayScore }) {
             <div>
               <div style={{ ...S.colourCard(isGood ? G.green : G.yellow), textAlign: "center", marginBottom: 20 }}>
                 <div style={{ fontSize: "7rem", fontWeight: 900, fontFamily: "'DM Mono',monospace", lineHeight: 1 }}>{total}</div>
-                <div style={{ fontSize: "1.2rem", fontWeight: 600, opacity: 0.85, marginTop: 8 }}>Today's Score</div>
+                <div style={{ fontSize: "1.2rem", fontWeight: 600, opacity: 0.85, marginTop: 8 }}>Today's score</div>
                 <div style={{ marginTop: 16, fontSize: "1.05rem", fontWeight: 700, background: "rgba(255,255,255,0.2)", borderRadius: 12, padding: "12px 16px" }}>
                   {isGood ? "✅ Memory patterns are stable!" : "⚠ Consider chatting with your caregiver."}
                 </div>
@@ -902,7 +905,9 @@ function TasksScreen({ role, onDone, todayScore }) {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <div style={S.card(C.blue)}>
+              
                 <label style={{ ...S.label, color: C.blue }}>7-Day Trend</label>
+                {role === "patient" && !<FamilyView />}
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={MOCK_SCORES}>
                     <XAxis dataKey="day" stroke="#D1D5DB" tick={{ fontSize: 13, fill: C.muted, fontWeight: 600 }} />
